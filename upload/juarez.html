@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Juarez Valley Method</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<script src="js/mobile.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<div style="max-width: 1133px;">
+				<a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+				<ul id="navigation">
+					<li>
+						<a href="index.html">Original Deck of Pain</a>
+					</li>
+					<li>
+						<a href="squat.html">Squat Crasher</a>
+					</li>
+					<li>
+						<a href="jailhouse.html">Jailhouse Method</a>
+					</li>
+					<li class="selected">
+						<a href="juarez.html">Juarez Valley Method</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="body" class="home">
+			<div class="body">
+				<div style="font-family: doom;color: white;font-size:30px;text-align: center;width: auto;">
+					Juarez Valley Method<br>
+					<label for="methodtop" style="color:white; font-family: doom; font-size: 22px;">Starting point</label>
+					<input id="methodtop" type="number" name="top" min="1" size="3" oninput="juarez()"><br>
+					<div id="jis" style="padding: 0px 0px;"></div>
+					<script>
+						function juarez(){
+							document.getElementById("jis").innerHTML="";
+							var width=document.getElementById("jis").scrollWidth;
+							var x = document.getElementById("methodtop").value;
+							var c=x;
+							var d=1;
+							for(let i=1;i<=x;i++){
+								if(i%2===0){
+									document.getElementById("jis").innerHTML=document.getElementById("jis").innerHTML+"<button id=\"jab"+i+"\" onclick=\"activated(id)\" style=\"margin-left:1px;margin-right:1px;height:"+d*20+"px;float: left;width: "+(Math.floor(width/(x))-2)+"px;padding: 0px 0px;background-color: none;font-size: 22px;\">"+(d++)+"</button>";
+								}
+								else{
+									document.getElementById("jis").innerHTML=document.getElementById("jis").innerHTML+"<button id=\"jab"+i+"\" onclick=\"activated(id)\" style=\"margin-left:1px;margin-right:1px;height:"+c*20+"px;float: left;width: "+(Math.floor(width/(x))-2)+"px;padding: 0px 0px;background-color: none;font-size: 22px;\">"+(c--)+"</button>";
+								}
+							}
+							var sum = (x/2)*(++x);
+							document.getElementById("jis").innerHTML="<p style=\"font-size:29px;margin-top:10px;margin-bottom:10px;\">"+sum+" Total burpees</p>"+document.getElementById("jis").innerHTML;
+						}
+						function activated(id){
+							if(document.getElementById(id).style.backgroundColor === ''){
+								document.getElementById(id).style.backgroundColor='#ffcc00';
+							}
+							else{
+								document.getElementById(id).style.backgroundColor='';
+							}
+						}
+					</script>
+				</div>
+				<div id="description" style="font-family: doom;color: white;font-size:30px;margin-left: 100px;margin-right: 100px;margin-top: 200px;text-align: center;width: auto;">
+				The Juarez Valley Method is a brutal burpee routine, it will either make you or brake you.<br>
+				Pick a starting point, and do the odd numbered sets in descending order and the even numbered sets in ascending order.<br>
+				The outcome is a burpee routine that only gets harder with time as each pair of odd and even sets has a fixed number of repetitions, resulting in an unrelenting pace!<br>
+				<span style="color: #ffcc00;">Can you endure?</span>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footnote">
+				<div>
+					<p>&copy; 2022 Leon</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
